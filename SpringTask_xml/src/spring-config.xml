@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <bean id="artem" class="classes.Contact">
+              <property name="name" value="Artem" />
+              <property name="age" value="25"/>
+       </bean>
+       <bean id="vasya" class="classes.Contact">
+              <property name="name" value="Vasya" />
+              <property name="age" value="20"/>
+       </bean>
+       <bean id="masha" class="classes.Contact">
+              <property name="name" value="Masha" />
+              <property name="age" value="23"/>
+       </bean>
+       <bean id="contactsDAO" class="classes.ContactsDAO">
+              <property name="list">
+                     <list>
+                           <ref bean="artem"/>
+                           <ref bean="vasya"/>
+                           <ref bean="masha"/>
+                     </list>
+              </property>
+
+       </bean>
+
+
+</beans>
