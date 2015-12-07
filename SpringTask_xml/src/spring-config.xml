@@ -15,6 +15,10 @@
               <property name="name" value="Masha" />
               <property name="age" value="23"/>
        </bean>
+       <bean id="fiofan" class="classes.Contact">
+              <property name="name" value="Fiofan" />
+              <property name="age" value="35"/>
+       </bean>
        <bean id="contactsDAO" class="classes.ContactsDAO">
               <property name="list">
                      <list>

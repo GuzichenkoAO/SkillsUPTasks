@@ -9,7 +9,6 @@ import java.util.*;
  */
 public class ContactsDAO implements ContactService {
 
-
     List list;
 
     public void setList(List list) {

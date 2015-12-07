@@ -6,6 +6,7 @@ import java.util.List;
 /**
  * Created by Артём on 02.12.2015.
  */
+
 public interface ContactService {
     void addContact(Contact contact);
 

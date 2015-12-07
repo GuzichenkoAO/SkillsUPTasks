@@ -12,9 +12,9 @@ public class MainApp {
 
         ContactsDAO contactsDAO = (ContactsDAO) context.getBean("contactsDAO");
         System.out.println(contactsDAO.getAllContacts());
-
-
-
+        Contact contact = (Contact) context.getBean("fiofan");
+        contactsDAO.addContact(contact);
+        System.out.println(contactsDAO.getAllContacts());
 
     }
 
