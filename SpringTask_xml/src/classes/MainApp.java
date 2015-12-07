@@ -8,13 +8,22 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class MainApp {
     public static void main(String[] args) {
+
+
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
 
         ContactsDAO contactsDAO = (ContactsDAO) context.getBean("contactsDAO");
+
         System.out.println(contactsDAO.getAllContacts());
-        Contact contact = (Contact) context.getBean("fiofan");
-        contactsDAO.addContact(contact);
+
+        contactsDAO.addContact((Contact) context.getBean("fiofan"));
+
+        contactsDAO.deleteContact((Contact) context.getBean("artem"));
         System.out.println(contactsDAO.getAllContacts());
+
+        contactsDAO.addContact((Contact) context.getBean("kris"));
+        System.out.println(contactsDAO.getAllContacts());
+
 
     }
 

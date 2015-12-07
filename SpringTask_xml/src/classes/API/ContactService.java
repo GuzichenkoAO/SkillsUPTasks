@@ -8,6 +8,9 @@ import java.util.List;
  */
 
 public interface ContactService {
+
+    void init();
+
     void addContact(Contact contact);
 
     void deleteContact(Contact contact);
