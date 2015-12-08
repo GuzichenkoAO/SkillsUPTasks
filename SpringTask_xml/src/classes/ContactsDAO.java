@@ -1,22 +1,25 @@
 package classes;
 
 import classes.API.ContactService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 
 import java.util.*;
 
 /**
  * Created by Артём on 02.12.2015.
  */
+
 public class ContactsDAO implements ContactService {
+
     int BookSize;
     List list;
 
+
+
     public void setBookSize(int bookSize) {
         BookSize = bookSize;
-    }
-
-    public void setList(List list) {
-        this.list = list;
     }
 
     public int getBookSize() {
@@ -29,9 +32,9 @@ public class ContactsDAO implements ContactService {
             BookSize=list.size();
         }
 
-
+    @Autowired
     @Override
-    public void addContact(Contact contact) {
+    public void addContact(@Qualifier("artem") Contact contact) {
         if (list.size()<BookSize)
         list.add(contact);
         else System.out.println("The Book is full");

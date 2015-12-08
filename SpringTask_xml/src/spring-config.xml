@@ -9,41 +9,34 @@
                             http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
 
-       <context:property-placeholder location="classpath:values"/>
-
-       <bean id="artem" class="classes.Contact">
-              <property name="name" value="Artem" />
-              <property name="age" value="25"/>
-       </bean>
-       <bean id="vasya" class="classes.Contact">
-              <property name="name" value="Vasya" />
-              <property name="age" value="20"/>
-       </bean>
-       <bean id="masha" class="classes.Contact">
-              <property name="name" value="Masha" />
-              <property name="age" value="23"/>
-       </bean>
-       <bean id="fiofan" class="classes.Contact">
-              <property name="name" value="Fiofan" />
-              <property name="age" value="35"/>
-       </bean>
-       <bean id="kris" class="classes.Contact">
-              <property name="name" value="Kris" />
-              <property name="age" value="24"/>
-       </bean>
-       <bean id="contactsDAO" class="classes.ContactsDAO" init-method="init">
-              <property name="BookSize" value="${BookSize}"></property>
-              <property name="list">
-                     <list>
-                           <ref bean="artem"/>
-                           <ref bean="vasya"/>
-                           <ref bean="masha"/>
-                           <ref bean="kris"/>
-                     </list>
-              </property>
+    <context:property-placeholder location="classpath:values"/>
+    <context:annotation-config/>
 
 
-       </bean>
+    <bean id="artem" class="classes.Contact">
+        <constructor-arg name="name" value="artem"/>
+        <constructor-arg name="age" value="35"/>
+    </bean>
+    <bean id="vasya" class="classes.Contact">
+        <property name="name" value="Vasya"/>
+        <property name="age" value="20"/>
+    </bean>
+    <bean id="masha" class="classes.Contact">
+        <property name="name" value="Masha"/>
+        <property name="age" value="23"/>
+    </bean>
+    <bean id="fiofan" class="classes.Contact">
+        <property name="name" value="Fiofan"/>
+        <property name="age" value="35"/>
+    </bean>
+    <bean id="kris" class="classes.Contact">
+        <property name="name" value="Kris"/>
+        <property name="age" value="24"/>
+    </bean>
+    <bean id="contactsDAO" class="classes.ContactsDAO" init-method="init">
+        <property name="bookSize" value="${BookSize}"/>
+
+    </bean>
 
 
 </beans>
