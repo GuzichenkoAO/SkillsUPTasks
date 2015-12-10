@@ -1,7 +1,9 @@
-package classes;
+package classes.conf;
 
 
 
+import classes.Contact;
+import classes.ContactsDAO;
 import org.springframework.context.annotation.*;
 
 
@@ -10,7 +12,7 @@ import org.springframework.context.annotation.*;
  */
 @Configuration
 @ComponentScan(basePackages = "classes.*")
-class JavaConfig {
+public class JavaConfig {
 
     @Bean
     public Contact contact1(){
