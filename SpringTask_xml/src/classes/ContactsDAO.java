@@ -1,40 +1,38 @@
 package classes;
 
 import classes.API.ContactService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 /**
  * Created by Артём on 02.12.2015.
  */
+@Repository
+@Service
 public class ContactsDAO implements ContactService {
-    int BookSize;
-    List list;
 
-    public void setBookSize(int bookSize) {
-        BookSize = bookSize;
-    }
+    @Autowired
+    private List<Contact> list;
+
+
 
     public void setList(List list) {
         this.list = list;
     }
 
-    public int getBookSize() {
-        return BookSize;
+
+    @Override
+    public void init() {
+
     }
-
-
-    public void init(){
-        if (BookSize>list.size())
-            BookSize=list.size();
-        }
-
 
     @Override
     public void addContact(Contact contact) {
-        if (list.size()<BookSize)
         list.add(contact);
-        else System.out.println("The Book is full");
+
     }
 
     @Override
