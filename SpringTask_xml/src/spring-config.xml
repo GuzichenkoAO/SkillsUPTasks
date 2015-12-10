@@ -11,7 +11,7 @@
 
     <context:property-placeholder location="classpath:values"/>
     <context:annotation-config/>
-
+    <context:component-scan base-package="classes"/>
 
     <bean id="artem" class="classes.Contact">
         <constructor-arg name="name" value="artem"/>
@@ -35,7 +35,6 @@
     </bean>
     <bean id="contactsDAO" class="classes.ContactsDAO" init-method="init">
         <property name="bookSize" value="${BookSize}"/>
-
     </bean>
 
 

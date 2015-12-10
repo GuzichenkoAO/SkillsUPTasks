@@ -1,15 +1,15 @@
 package classes;
 
 
-import org.springframework.beans.factory.annotation.Required;
 
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by Артём on 02.12.2015.
  */
 
-
-public class Contact {
+@Repository
+public class Contact{
     private String name;
     private int age;
 

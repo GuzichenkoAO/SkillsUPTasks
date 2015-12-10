@@ -2,7 +2,7 @@ package classes;
 
 import classes.API.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 
 
 import java.util.*;
@@ -10,11 +10,12 @@ import java.util.*;
 /**
  * Created by Артём on 02.12.2015.
  */
-
+@Repository
 public class ContactsDAO implements ContactService {
 
     int BookSize;
-    List list;
+    @Autowired
+    List<Contact> list;
 
 
 
@@ -32,9 +33,9 @@ public class ContactsDAO implements ContactService {
             BookSize=list.size();
         }
 
-    @Autowired
+
     @Override
-    public void addContact(@Qualifier("artem") Contact contact) {
+    public void addContact(Contact contact) {
         if (list.size()<BookSize)
         list.add(contact);
         else System.out.println("The Book is full");
@@ -54,8 +55,6 @@ public class ContactsDAO implements ContactService {
     public void clearAll() {
         list.clear();
     }
-
-
 
 
 
