@@ -26,8 +26,9 @@ public class Main {
 
         contactService.addContact(contact1);
 
-        System.out.println(contact1.toString()+" "+contact2.toString());
+        System.out.println(contact1.toString() + " " + contact2.toString());
         System.out.println(contactService.getAllContacts());
+
 
     }
 

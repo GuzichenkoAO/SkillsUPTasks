@@ -3,9 +3,9 @@ package com.guzichenko.models;
 /**
  * Created by Артём on 11.12.2015.
  */
-public class Contact {
 
-    private String name;
+public class Contact {
+private String name;
     private String age;
 
     public Contact() {

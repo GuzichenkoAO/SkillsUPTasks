@@ -1,6 +1,7 @@
 package com.guzichenko.models;
 
 import org.springframework.beans.factory.FactoryBean;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 /**
@@ -23,6 +24,7 @@ public class ContactFactory implements FactoryBean<Contact> {
     public void setAge(String age) {
         this.age = age;
     }
+
 
     @Override
     public Contact getObject() throws Exception {
