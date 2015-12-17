@@ -28,6 +28,8 @@ public class Main {
 
         System.out.println(contact1.toString() + " " + contact2.toString());
         System.out.println(contactService.getAllContacts());
+        Class c1 = Contact.class;
+        System.out.println(c1);
 
 
     }

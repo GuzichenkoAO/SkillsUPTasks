@@ -1,21 +1,35 @@
 package com.guzichenko.repository;
 
+import com.guzichenko.models.Contact;
 import com.guzichenko.repository.impl.ContactRepositoryImpl;
+import org.junit.Before;
 import org.junit.Test;
-import java.util.*;
+import org.mockito.Mock;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.*;
 
 /**
  * Created by Артём on 11.12.2015.
  */
 public class ContactRepositoryTest {
 
-    ContactRepositoryImpl contactRepository = new ContactRepositoryImpl();
+    @Mock
+    ContactRepository contactRepository;
+
+    @Before
+    public void setUp() throws Exception {
+        contactRepository = mock(ContactRepository.class);
+    }
 
     @Test
     public void getAllContactsTest(){
-        assertEquals(ArrayList.class, contactRepository.getAllContact().getClass());
+        ArrayList<Contact> list = mock(ArrayList.class);
+        when(contactRepository.getAllContact()).thenReturn(list);
+        assertEquals(list, contactRepository.getAllContact());
     }
 
 }
