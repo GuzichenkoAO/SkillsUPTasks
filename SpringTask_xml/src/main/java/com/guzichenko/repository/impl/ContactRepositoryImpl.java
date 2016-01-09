@@ -2,6 +2,7 @@ package com.guzichenko.repository.impl;
 
 import com.guzichenko.models.Contact;
 import com.guzichenko.repository.ContactRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.ArrayList;

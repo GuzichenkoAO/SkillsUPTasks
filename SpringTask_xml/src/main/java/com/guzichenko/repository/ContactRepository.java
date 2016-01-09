@@ -1,6 +1,8 @@
 package com.guzichenko.repository;
 
 import com.guzichenko.models.Contact;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.List;
 
 /**
@@ -8,6 +10,7 @@ import java.util.List;
  */
 
 public interface ContactRepository {
+
 
     void addContact(Contact contact);
 

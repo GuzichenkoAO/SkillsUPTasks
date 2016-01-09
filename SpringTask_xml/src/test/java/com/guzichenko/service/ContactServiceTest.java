@@ -1,7 +1,7 @@
 package com.guzichenko.service;
 
 import com.guzichenko.models.Contact;
-import com.guzichenko.service.impl.ContactServiceImpl;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

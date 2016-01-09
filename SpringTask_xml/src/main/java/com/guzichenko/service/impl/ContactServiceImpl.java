@@ -4,6 +4,9 @@ import com.guzichenko.models.Contact;
 import com.guzichenko.repository.ContactRepository;
 import com.guzichenko.repository.impl.ContactRepositoryImpl;
 import com.guzichenko.service.ContactService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
@@ -12,7 +15,8 @@ import java.util.List;
  */
 public class ContactServiceImpl implements ContactService {
 
-    ContactRepository contactRepository = new ContactRepositoryImpl();
+    @Autowired
+    ContactRepositoryImpl contactRepository;
 
         @Override
     public void addContact(Contact contact) {

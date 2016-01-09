@@ -5,8 +5,14 @@ package com.guzichenko.models;
  */
 
 public class Contact {
-private String name;
+
+    private Long id;
+
+
+    private String name;
+    private String phone;
     private String age;
+
 
     public Contact() {
     }
@@ -16,9 +22,22 @@ private String name;
         this.age = age;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
 
     public void setAge(String age) {
         this.age = age;
@@ -32,8 +51,14 @@ private String name;
         return age;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+
+
     @Override
     public String toString() {
-        return  name + " " + age ;
+        return  name + " " + age + " "+ phone;
     }
 }

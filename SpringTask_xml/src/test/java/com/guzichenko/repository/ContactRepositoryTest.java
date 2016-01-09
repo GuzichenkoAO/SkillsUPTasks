@@ -1,12 +1,12 @@
 package com.guzichenko.repository;
 
 import com.guzichenko.models.Contact;
-import com.guzichenko.repository.impl.ContactRepositoryImpl;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;

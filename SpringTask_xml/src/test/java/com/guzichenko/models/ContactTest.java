@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
+
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
@@ -26,8 +27,6 @@ public class ContactTest {
         name = "name";
         age = "age";
         contact = mock(Contact.class);
-
-        when(contact.getAge()).thenReturn(age);
     }
 
     @Test
