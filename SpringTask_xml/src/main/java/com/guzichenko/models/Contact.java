@@ -1,12 +1,14 @@
 package com.guzichenko.models;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
 /**
  * Created by Артём on 11.12.2015.
  */
 
-public class Contact {
 
-    private Long id;
+public class Contact implements Serializable{
 
 
     private String name;
@@ -22,12 +24,10 @@ public class Contact {
         this.age = age;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public Contact(String name, String age, String phone) {
+        this.name = name;
+        this.phone = phone;
+        this.age = age;
     }
 
     public void setName(String name) {

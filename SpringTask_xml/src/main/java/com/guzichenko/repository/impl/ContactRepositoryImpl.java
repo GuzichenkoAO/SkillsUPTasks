@@ -1,39 +1,55 @@
 package com.guzichenko.repository.impl;
 
+import com.guzichenko.entities.MappedContact;
 import com.guzichenko.models.Contact;
 import com.guzichenko.repository.ContactRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
-import java.util.ArrayList;
 
 /**
  * Created by Артём on 11.12.2015.
  */
+@Repository
 public class ContactRepositoryImpl implements ContactRepository {
 
-    ArrayList<Contact> list = new ArrayList<>();
+    private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("com.guzichenko");
 
-    @Override
-    public void addContact(Contact contact) {
-        list.add(contact);
+
+    private EntityManager em = entityManagerFactory.createEntityManager();
+
+    public ContactRepositoryImpl() {
     }
 
     @Override
-    public void deleteContact(Contact contact) {
-        list.remove(contact);
+    @Transactional
+    public void addContact(MappedContact contact) {
+        em.getTransaction().begin();
+        em.persist(contact);
+        em.getTransaction().commit();
+
 
     }
 
     @Override
-    public List<Contact> getAllContact() {
-        return list;
+    public void deleteContact(MappedContact contact) {
     }
 
     @Override
-    public void clearAll() {
-        list.clear();
+    @Transactional
+    public List<MappedContact> getAllContact() {
+        return em.createQuery("from com.guzichenko.entities.MappedContact", MappedContact.class).getResultList();
+
     }
+
+    @Override
+    public void clearAll() { }
 
 
 

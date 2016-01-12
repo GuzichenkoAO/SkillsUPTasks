@@ -1,7 +1,7 @@
 package com.guzichenko.models;
 
 import org.springframework.beans.factory.FactoryBean;
-import org.springframework.beans.factory.annotation.Autowired;
+
 
 
 /**
@@ -33,7 +33,7 @@ public class ContactFactory implements FactoryBean<Contact> {
 
     @Override
     public Contact getObject() throws Exception {
-        Contact contact = new Contact(name, age);
+        Contact contact = new Contact(name, age, phone);
         return contact;
     }
 

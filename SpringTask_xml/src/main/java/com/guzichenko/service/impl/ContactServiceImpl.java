@@ -1,40 +1,61 @@
 package com.guzichenko.service.impl;
 
+import com.guzichenko.entities.MappedContact;
 import com.guzichenko.models.Contact;
 import com.guzichenko.repository.ContactRepository;
-import com.guzichenko.repository.impl.ContactRepositoryImpl;
 import com.guzichenko.service.ContactService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * Created by Артём on 11.12.2015.
  */
+
 public class ContactServiceImpl implements ContactService {
 
     @Autowired
-    ContactRepositoryImpl contactRepository;
+    private ContactRepository contactRepository;
 
-        @Override
+    @Autowired
+    MappedContact mc;
+
+    public ContactServiceImpl() {
+    }
+
+    @Override
     public void addContact(Contact contact) {
-        contactRepository.addContact(contact);
+        mc.setName(contact.getName());
+        mc.setAge(contact.getAge());
+        mc.setPhone(contact.getPhone());
+        contactRepository.addContact(mc);
+
     }
 
     @Override
     public void deleteContact(Contact contact) {
-        contactRepository.deleteContact(contact);
+        contactRepository.deleteContact(mc);
     }
 
     @Override
     public List<Contact> getAllContacts() {
-        return contactRepository.getAllContact();
+        List<MappedContact> mappedContacts = contactRepository.getAllContact();
+        List<Contact> contacts = new ArrayList<>(mappedContacts.size());
+        for (MappedContact mc: mappedContacts){
+            Contact contact = new Contact();
+            contact.setName(mc.getName());
+            contact.setPhone(mc.getPhone());
+            contact.setAge(mc.getAge());
+            contacts.add(contact);
+        }
+        return contacts;
     }
 
     @Override
     public void clearAll() {
-        contactRepository.clearAll();
+
     }
 }
