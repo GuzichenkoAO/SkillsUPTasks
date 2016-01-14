@@ -25,11 +25,11 @@ public class ContactRepositoryTest {
         contactRepository = mock(ContactRepository.class);
     }
 
-    @Test
+    /*@Test
     public void getAllContactsTest(){
         ArrayList<Contact> list = mock(ArrayList.class);
         when(contactRepository.getAllContact()).thenReturn(list);
         assertEquals(list, contactRepository.getAllContact());
-    }
+    }*/
 
 }

@@ -21,9 +21,9 @@ public class Main {
 
         ContactService contactService =  context.getBean(ContactServiceImpl.class);
         ContactFactory cf = context.getBean(ContactFactory.class);
-        cf.setAge("35");
-        cf.setName("Vasya");
-        cf.setPhone("03");
+        cf.setAge("40");
+        cf.setName("Alibaba");
+        cf.setPhone("01654654");
         Contact contact1 = cf.getObject();
         cf.setAge("22");
         cf.setName("Bella");

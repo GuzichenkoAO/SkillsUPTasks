@@ -3,6 +3,7 @@ package com.guzichenko.repository.impl;
 import com.guzichenko.entities.MappedContact;
 import com.guzichenko.models.Contact;
 import com.guzichenko.repository.ContactRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -19,10 +20,9 @@ import java.util.List;
 @Repository
 public class ContactRepositoryImpl implements ContactRepository {
 
-    private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("com.guzichenko");
 
-
-    private EntityManager em = entityManagerFactory.createEntityManager();
+    @PersistenceContext
+    private EntityManager em;
 
     public ContactRepositoryImpl() {
     }
@@ -30,11 +30,7 @@ public class ContactRepositoryImpl implements ContactRepository {
     @Override
     @Transactional
     public void addContact(MappedContact contact) {
-        em.getTransaction().begin();
         em.persist(contact);
-        em.getTransaction().commit();
-
-
     }
 
     @Override
