@@ -6,6 +6,7 @@ import com.guzichenko.repository.ContactRepository;
 import com.guzichenko.service.ContactService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +20,7 @@ import java.util.List;
 @Service
 public class ContactServiceImpl implements ContactService {
 
+    @Qualifier("contactRepositoryImpl")
     @Autowired
     private ContactRepository contactRepository;
 

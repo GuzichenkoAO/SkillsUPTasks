@@ -1,15 +1,13 @@
 package com.guzichenko.repository.impl;
 
 import com.guzichenko.entities.MappedContact;
-import com.guzichenko.models.Contact;
+
 import com.guzichenko.repository.ContactRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
@@ -17,15 +15,13 @@ import java.util.List;
 /**
  * Created by Артём on 11.12.2015.
  */
+
 @Repository
 public class ContactRepositoryImpl implements ContactRepository {
 
 
     @PersistenceContext
     private EntityManager em;
-
-    public ContactRepositoryImpl() {
-    }
 
     @Override
     @Transactional
@@ -34,7 +30,9 @@ public class ContactRepositoryImpl implements ContactRepository {
     }
 
     @Override
+    @Transactional
     public void deleteContact(MappedContact contact) {
+        em.remove(contact);
     }
 
     @Override
@@ -45,7 +43,10 @@ public class ContactRepositoryImpl implements ContactRepository {
     }
 
     @Override
-    public void clearAll() { }
+    @Transactional
+    public void clearAll(){
+    em.clear();
+    }
 
 
 

@@ -1,6 +1,5 @@
 package com.guzichenko.models;
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

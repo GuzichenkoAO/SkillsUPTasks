@@ -24,8 +24,8 @@
     <td>${age}</td>
   </tr>
   <tr>
-    <td>ID</td>
-    <td>${id}</td>
+    <td>Phone</td>
+    <td>${phone}</td>
   </tr>
 </table>
 </body>
