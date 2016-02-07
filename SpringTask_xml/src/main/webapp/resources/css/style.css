@@ -1,6 +1,22 @@
 body{
-    background-color: coral;
+    background-color: beige;
 }
 .header{
-    align: center;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: 600px;
+    padding-top: 30px;
 }
+.mid{
+    margin-right: auto;
+    margin-left: auto;
+    width: 600px;
+}
+.menu_item{
+    float: left;
+}
+h3{
+    border-bottom: 1px solid black;
+}
+

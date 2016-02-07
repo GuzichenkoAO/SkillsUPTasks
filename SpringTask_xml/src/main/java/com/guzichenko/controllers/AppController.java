@@ -20,9 +20,9 @@ public class AppController {
     @Autowired
     private ContactService contactService;
 
-    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    @RequestMapping(value = "/newContact", method = RequestMethod.GET)
     public ModelAndView contact() {
-        return new ModelAndView("contact", "contact", new Contact());
+        return new ModelAndView("newContact", "contact", new Contact());
     }
 
     @RequestMapping(value = "/addContact", method = RequestMethod.POST)
@@ -40,5 +40,7 @@ public class AppController {
         model.addAttribute("list", list);
         return "allContacts";
     }
+
+
 
 }

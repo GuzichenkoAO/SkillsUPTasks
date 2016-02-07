@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: Артем
@@ -13,7 +14,20 @@
 </head>
 <body>
 
-<div class="header">Contact Book</div>
+<div class="header"><h2>Contact Book</h2></div>
+<div class="mid">
+<table>
+  <tr>
+    <td width="150px"><form action="/newContact">
+      <input type="submit" value="New Contact">
+    </form></td>
+    <td width="150px"><form action="/allContacts">
+      <input type="submit" value="Show All">
+    </form></td>
+    <td width="150px"></td>
+  </tr>
+</table>
+</div>
 
 </body>
 </html>
