@@ -20,20 +20,20 @@
     <table>
       <tr>
         <td>Name</td>
-        <td>${name}</td>
+        <td>${contact.name}</td>
       </tr>
       <tr>
         <td>Age</td>
-        <td>${age}</td>
+        <td>${contact.age}</td>
       </tr>
       <tr>
         <td>Phone</td>
-        <td>${phone}</td>
+        <td>${contact.phone}</td>
       </tr>
     </table>
  <table>
   <tr>
-    <td width="150px"><form action="/newContact">
+    <td width="150px"><form action="/Contact">
       <input type="submit" value="New Contact">
     </form></td>
     <td width="150px"><form action="/allContacts">

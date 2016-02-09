@@ -1,6 +1,5 @@
 package com.guzichenko.models;
 
-import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -10,6 +9,7 @@ import java.io.Serializable;
 
 public class Contact implements Serializable{
 
+    private long id;
 
     private String name;
     private String phone;
@@ -25,8 +25,13 @@ public class Contact implements Serializable{
 
     public Contact(String name, String age, String phone) {
         this.name = name;
-        this.phone = phone;
         this.age = age;
+        this.phone = phone;
+    }
+
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public void setName(String name) {
@@ -37,9 +42,12 @@ public class Contact implements Serializable{
         this.phone = phone;
     }
 
-
     public void setAge(String age) {
         this.age = age;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getName() {

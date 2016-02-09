@@ -18,7 +18,7 @@
 
 <div class="header"><h2>Contact Book</h2></div>
 <div class="mid">
-<form:form method="POST" commandName="contact" action="/addContact">
+<form:form method="POST" modelAttribute="contact" action="/addContact">
   <table>
     <tr>
       <td><form:label path="name">Name</form:label></td>
@@ -34,7 +34,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <input type="submit" value="Add Contact"/>
+        <input type="submit" value="Confirm"/>
       </td>
     </tr>
   </table>

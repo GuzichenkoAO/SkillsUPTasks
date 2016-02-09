@@ -24,32 +24,59 @@ public class ContactServiceImpl implements ContactService {
     @Autowired
     private ContactRepository contactRepository;
 
+
     @Autowired
     MappedContact mc;
+
 
     public ContactServiceImpl() {
     }
 
     @Override
+    @Transactional
     public void addContact(Contact contact) {
         mc.setName(contact.getName());
         mc.setAge(contact.getAge());
         mc.setPhone(contact.getPhone());
         contactRepository.addContact(mc);
-
     }
 
     @Override
-    public void deleteContact(Contact contact) {
-        contactRepository.deleteContact(mc);
+    @Transactional
+    public void updateContact(Contact contact){
+        mc.setId(contact.getId());
+        mc.setName(contact.getName());
+        mc.setAge(contact.getAge());
+        mc.setPhone(contact.getPhone());
+        contactRepository.updateContact(mc);
     }
 
     @Override
+    @Transactional
+    public void deleteContact(long id) {
+        contactRepository.deleteContact(id);
+    }
+
+    @Override
+    @Transactional
+    public Contact getContact(long id){
+        Contact contact = new Contact();
+        mc = contactRepository.selectContact(id);
+        contact.setId(mc.getId());
+        contact.setName(mc.getName());
+        contact.setAge(mc.getAge());
+        contact.setPhone(mc.getPhone());
+        return contact;
+    }
+
+    @Override
+    @Transactional
     public List<Contact> getAllContacts() {
         List<MappedContact> mappedContacts = contactRepository.getAllContact();
         List<Contact> contacts = new ArrayList<>(mappedContacts.size());
         for (MappedContact mc: mappedContacts){
             Contact contact = new Contact();
+            contact.setId(mc.getId());
             contact.setName(mc.getName());
             contact.setPhone(mc.getPhone());
             contact.setAge(mc.getAge());
@@ -59,7 +86,8 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
+    @Transactional
     public void clearAll() {
-
+        contactRepository.clearAll();
     }
 }

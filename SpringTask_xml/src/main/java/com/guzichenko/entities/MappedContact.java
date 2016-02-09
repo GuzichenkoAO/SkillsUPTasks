@@ -16,7 +16,6 @@ public class MappedContact {
         private Long id;
 
 
-
         @Column(name = "name")
         private String name;
         @Column
@@ -39,15 +38,11 @@ public class MappedContact {
             this.age = age;
         }
 
-        public Long getId() {
-            return id;
-        }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-        public void setId(Long id) {
-            this.id = id;
-        }
-
-        public void setName(String name) {
+    public void setName(String name) {
             this.name = name;
         }
 
@@ -55,10 +50,13 @@ public class MappedContact {
             this.phone = phone;
         }
 
-
         public void setAge(String age) {
             this.age = age;
         }
+
+        public Long getId() {
+        return id;
+    }
 
         public String getName() {
             return this.name;
@@ -74,7 +72,9 @@ public class MappedContact {
 
         @Override
         public String toString() {
-            return  name + " " + age + " "+ phone;
+            return  name +
+                    " " + age +
+                    " " + phone;
         }
     }
 

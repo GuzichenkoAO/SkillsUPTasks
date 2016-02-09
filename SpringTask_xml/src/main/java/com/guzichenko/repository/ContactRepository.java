@@ -14,9 +14,13 @@ public interface ContactRepository {
 
     void addContact(MappedContact contact);
 
-    void deleteContact(MappedContact contact);
+    void updateContact(MappedContact contact);
+
+    void deleteContact(long id);
 
     List<MappedContact> getAllContact();
+
+    MappedContact selectContact(long id);
 
     void clearAll();
 }

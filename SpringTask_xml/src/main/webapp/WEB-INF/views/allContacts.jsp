@@ -25,18 +25,20 @@
 </table>
 </div>
 <div class="mid"><table>
-  <c:forEach var="listValue" items="${list}">
+  <c:forEach var="contact" items="${list}">
     <tr>
-      <td width="150px">${listValue.name}</td>
-      <td width="150px">${listValue.age}</td>
-      <td width="150px">${listValue.phone}</td>
-      <td width="75px"><form><input type="submit" value="details"/></form> </td>
-      <td width="75px"><form><input type="submit" value="delete"/></form> </td>
+      <td width="150px">${contact.name}</td>
+      <td width="150px">${contact.age}</td>
+      <td width="150px">${contact.phone}</td>
+      <td width="75px"><form action="/edit/${contact.id}"><input type="submit" value="edit"/></form> </td>
+      <td width="75px"><form action="/delete/${contact.id}"><input type="submit" value="delete"/></form> </td>
+
     </tr>
   </c:forEach>
 </table>
   <form action="/">
     <input type="submit" value="Back">
-  </form></div>
+  </form>
+</div>
 </body>
 </html>

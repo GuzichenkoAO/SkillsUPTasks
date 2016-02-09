@@ -1,15 +1,15 @@
 package com.guzichenko.repository.impl;
 
 import com.guzichenko.entities.MappedContact;
-
 import com.guzichenko.repository.ContactRepository;
 
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
 
+import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+
 import java.util.List;
 
 /**
@@ -19,9 +19,9 @@ import java.util.List;
 @Repository
 public class ContactRepositoryImpl implements ContactRepository {
 
-
     @PersistenceContext
     private EntityManager em;
+
 
     @Override
     @Transactional
@@ -31,8 +31,14 @@ public class ContactRepositoryImpl implements ContactRepository {
 
     @Override
     @Transactional
-    public void deleteContact(MappedContact contact) {
-        em.remove(contact);
+    public void updateContact(MappedContact contact){
+        em.merge(contact);
+    }
+
+    @Override
+    @Transactional
+    public void deleteContact(long id) {
+        em.remove(em.find(MappedContact.class, id));
     }
 
     @Override
@@ -41,12 +47,20 @@ public class ContactRepositoryImpl implements ContactRepository {
         return em.createQuery("from com.guzichenko.entities.MappedContact", MappedContact.class).getResultList();
 
     }
+    @Override
+    @Transactional
+    public MappedContact selectContact(long id) {
+        return em.find(MappedContact.class, id);
+    }
 
     @Override
     @Transactional
     public void clearAll(){
     em.clear();
     }
+
+
+
 
 
 

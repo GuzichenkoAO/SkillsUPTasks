@@ -12,9 +12,13 @@ public interface ContactService {
 
     void addContact(Contact contact);
 
-    void deleteContact(Contact contact);
+    void updateContact(Contact contact);
+
+    void deleteContact(long id);
 
     List<Contact> getAllContacts();
+
+    Contact getContact(long id);
 
     void clearAll();
 

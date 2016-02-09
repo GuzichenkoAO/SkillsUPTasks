@@ -18,7 +18,7 @@
 <div class="mid">
 <table>
   <tr>
-    <td width="150px"><form action="/newContact">
+    <td width="150px"><form action="/Contact">
       <input type="submit" value="New Contact">
     </form></td>
     <td width="150px"><form action="/allContacts">
